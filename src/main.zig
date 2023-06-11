@@ -1,6 +1,6 @@
 const std = @import("std");
 
-const Error = error{ InputTooLarge, InvalidId } || std.mem.Allocator.Error;
+pub const Error = error{ InputTooLarge, InvalidId } || std.mem.Allocator.Error;
 
 const Span = struct {
     iteration: usize,
