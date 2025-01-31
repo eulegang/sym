@@ -107,7 +107,7 @@ pub const Symbols = struct {
 
         while (true) {
             while (sblk_i < sblk.len) {
-                var span = sblk.buffer[i];
+                const span = sblk.buffer[i];
 
                 while (cblk_i < span.iteration) {
                     if (cblk.next) |sub| {
@@ -181,12 +181,12 @@ pub const Symbols = struct {
             jumps -= 1;
         }
 
-        var i = id % SpanBlk.CAPACITY;
+        const i = id % SpanBlk.CAPACITY;
         if (i >= sblk.len) {
             return Error.InvalidId;
         }
 
-        var span = sblk.buffer[i];
+        const span = sblk.buffer[i];
 
         var cblk = self.blk;
         jumps = span.iteration;
@@ -206,7 +206,7 @@ pub const Symbols = struct {
 };
 
 test "symbols" {
-    var alloc = std.testing.allocator_instance.allocator();
+    const alloc = std.testing.allocator_instance.allocator();
     var symbols = try Symbols.init(alloc);
     defer symbols.deinit();
 
