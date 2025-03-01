@@ -24,7 +24,7 @@ pub fn build(b: *std.Build) void {
         .optimize = optimize,
     });
 
-    b.addModule("sym", .{
+    _ = b.addModule("sym", .{
         .root_source_file = b.path("src/main.zig"),
         .target = target,
         .optimize = optimize,
